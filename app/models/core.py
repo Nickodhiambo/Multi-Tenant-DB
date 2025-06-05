@@ -13,6 +13,9 @@ class CoreUser(Base):
     is_active = Column(Boolean, default=True)
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
+
+    # Relationship to organizations owned by this user
+    owned_organizations = relationship("Organization", back_populates="owner")
     
 
 class Organization(Base):
@@ -26,4 +29,5 @@ class Organization(Base):
     created_at = Column(DateTime(timezone=True), server_default=func.now())
     updated_at = Column(DateTime(timezone=True), onupdate=func.now())
     owner_id = Column(Integer, ForeignKey("core_users.id"), nullable=False)
-    owner = relationship("CoreUser", back_populates="core-user")
+    # Relationship to owner
+    owner = relationship("CoreUser", back_populates="owned_organizations")
