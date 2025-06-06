@@ -45,8 +45,8 @@ jwt_secret_key = ""
 jwt_algorithm = "HS256"
 jwt_access_token_expire_minutes = 30
 ```
-Replace <username> with your postgreSQL username, <password> with your postres password and
-<database name> with the name you chose for your running database instance
+Replace 'username' with your postgreSQL username, 'password' with your postreSQL password and
+'database name' with the name you chose for your running database instance
 
 5. Apply database migrations
 ```bash
@@ -79,7 +79,7 @@ Testing covers the core functionality of the API:
 
 To test these functionality, run from the root directory:
 ```python
-pytest -v -s test
+pytest -v -s tests
 ```
 
 ### API Documentation
